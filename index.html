@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okazje Wpadły - Strona główna</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+        }
+        .buttons-row {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .button-container {
+            width: 220px;
+            margin: 20px;
+            text-align: center;
+        }
+        .button-container button {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button-container button:hover {
+            background-color: #0066cc;
+        }
+        .description {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+        }
+        .offer-day {
+            margin-top: 50px;
+            padding: 40px 0;
+            background-color: #f8f8f8;
+        }
+        .offer-day h2 {
+            font-size: 24px;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Okazje Wpadły - Twoje miejsce na super oferty!</h1>
+    </header>
+
+    <div class="container">
+        <!-- Sekcja Oferta Dnia -->
+        <div class="offer-day">
+            <h2>Oferta dnia</h2>
+            <button onclick="window.location.href='oferta-dnia.html'">Sprawdź ofertę dnia</button>
+        </div>
+
+        <!-- Sekcja Usługi -->
+        <div class="buttons-row">
+            <!-- Podróżuj Taniej -->
+            <div class="button-container">
+                <button onclick="window.location.href='podrozuj-taniej.html'">Podróżuj Taniej</button>
+                <p class="description">Podróżuj taniej! Sprawdź najlepsze oferty na hotele, loty i wakacje, od sprawdzonych partnerów. Kliknij i zarezerwuj wymarzony wyjazd w najlepszej cenie!</p>
+            </div>
+
+            <!-- Strefa Beauty -->
+            <div class="button-container">
+                <button onclick="window.location.href='strefa-beauty.html'">Strefa Beauty</button>
+                <p class="description">Najlepsze okazje na kosmetyki i perfumy! Sprawdź oferty topowych sklepów, kliknij, oszczędzaj i ciesz się ulubionymi produktami w najlepszych cenach.</p>
+            </div>
+
+            <!-- Najlepsza Elektronika -->
+            <div class="button-container">
+                <button onclick="window.location.href='najlepsza-elektronika.html'">Najlepsza Elektronika</button>
+                <p class="description">Oszczędzaj na najnowszych gadżetach i urządzeniach elektronicznych dzięki naszym wyjątkowym ofertom.</p>
+            </div>
+
+            <!-- Moda & Styl -->
+            <div class="button-container">
+                <button onclick="window.location.href='moda-styl.html'">Moda & Styl</button>
+                <p class="description">Kupuj stylowo i oszczędzaj! Znajdź swoje ulubione marki odzieżowe i obuwnicze w jednym miejscu - kliknij i przejdź do najlepszych sklepów online.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
