@@ -7,101 +7,94 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #333;
             margin: 0;
             padding: 0;
-            text-align: center;
+            scroll-behavior: smooth;
         }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-        .header {
-            background-color: #000;
-            color: #fff;
-            padding: 20px 0;
-        }
-        .buttons-row {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-        .button-container {
-            width: 220px;
-            margin: 20px;
-            text-align: center;
-        }
-        .button-container button {
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 15px;
-            font-size: 18px;
-            background-color: #000;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
         }
-        .button-container button:hover {
-            background-color: #0066cc;
-        }
-        .description {
-            font-size: 14px;
-            color: #555;
-            margin-top: 10px;
-        }
-        .offer-day {
-            margin-top: 50px;
-            padding: 40px 0;
-            background-color: #f8f8f8;
-        }
-        .offer-day h2 {
+        .logo {
             font-size: 24px;
-            color: #000;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
         }
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        .menu a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+        }
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        #home { background-color: #f4f4f4; }
+        #services { background-color: #ddd; }
+        #about { background-color: #bbb; }
+        #contact { background-color: #999; }
     </style>
 </head>
 <body>
-
-    <header class="header">
-        <h1>Okazje Wpadły - Twoje miejsce na super oferty!</h1>
-    </header>
-
-    <div class="container">
-        <!-- Sekcja Oferta Dnia -->
-        <div class="offer-day">
-            <h2>Oferta dnia</h2>
-            <button onclick="window.location.href='oferta-dnia.html'">Sprawdź ofertę dnia</button>
+    <nav class="navbar">
+        <div class="logo">Okazje Wpadły</div>
+        <div class="menu">
+            <a href="#home" class="nav-link">Główna</a>
+            <a href="#services" class="nav-link">Usługi</a>
+            <a href="#about" class="nav-link">O nas</a>
+            <a href="#contact" class="nav-link">Kontakt</a>
         </div>
+    </nav>
+    
+    <section id="home">Główna</section>
+    <section id="services">Usługi</section>
+    <section id="about">O nas</section>
+    <section id="contact">Kontakt</section>
+    
+    <script>
+        window.addEventListener("scroll", () => {
+            let sections = document.querySelectorAll("section");
+            let navLinks = document.querySelectorAll(".nav-link");
 
-        <!-- Sekcja Usługi -->
-        <div class="buttons-row">
-            <!-- Podróżuj Taniej -->
-            <div class="button-container">
-                <button onclick="window.location.href='podrozuj-taniej.html'">Podróżuj Taniej</button>
-                <p class="description">Podróżuj taniej! Sprawdź najlepsze oferty na hotele, loty i wakacje, od sprawdzonych partnerów. Kliknij i zarezerwuj wymarzony wyjazd w najlepszej cenie!</p>
-            </div>
+            sections.forEach((section, i) => {
+                let top = window.scrollY;
+                let offset = section.offsetTop - 50;
+                let height = section.offsetHeight;
 
-            <!-- Strefa Beauty -->
-            <div class="button-container">
-                <button onclick="window.location.href='strefa-beauty.html'">Strefa Beauty</button>
-                <p class="description">Najlepsze okazje na kosmetyki i perfumy! Sprawdź oferty topowych sklepów, kliknij, oszczędzaj i ciesz się ulubionymi produktami w najlepszych cenach.</p>
-            </div>
-
-            <!-- Najlepsza Elektronika -->
-            <div class="button-container">
-                <button onclick="window.location.href='najlepsza-elektronika.html'">Najlepsza Elektronika</button>
-                <p class="description">Oszczędzaj na najnowszych gadżetach i urządzeniach elektronicznych dzięki naszym wyjątkowym ofertom.</p>
-            </div>
-
-            <!-- Moda & Styl -->
-            <div class="button-container">
-                <button onclick="window.location.href='moda-styl.html'">Moda & Styl</button>
-                <p class="description">Kupuj stylowo i oszczędzaj! Znajdź swoje ulubione marki odzieżowe i obuwnicze w jednym miejscu - kliknij i przejdź do najlepszych sklepów online.</p>
-            </div>
-        </div>
-    </div>
-
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(link => link.classList.remove("active"));
+                    navLinks[i].classList.add("active");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
