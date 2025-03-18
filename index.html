@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okazje Wpadły - Strona główna</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #344e41;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-style: italic;
+            font-weight: bold;
+            font-family: 'Times', sans-serif;
+        }
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            padding-right: 30px;
+        }
+        .menu a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #a3b18a;
+        }
+        #home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: url('zdjęcie_glowna.jpg') no-repeat center center/cover;
+        }
+        .main-title {
+            font-family: 'Lobster', cursive;
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background-color: #a3b18a;
+            padding: 10px 20px;
+            border-radius: 5px;
+           display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+        .underline {
+            width: 150px;
+            height: 4px;
+            background-color: #344e41;
+            margin: 10px auto;
+        }
+        .subtitle {
+            font-size: 24px;
+        }
+        .button {
+            font-family: 'Lobster', cursive;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #a3b18a;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background-color: #8a9b68;
+        }
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            padding-top: 80px;
+        }
+        #services, #about, #contact {
+            background-color: #dad7cd;
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: row;
+                align-items: center;
+                padding: 10px 10px;
+            }
+            .logo {
+                font-size: 20px;
+                text-align: center;
+                width: 100%;
+            }
+            .menu {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                width: 100%;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+            .menu a {
+                display: inline-block;
+                margin: 0px 15px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Okazje Wpadły</div>
+        <div class="menu">
+            <a href="#home" class="nav-link">Główna</a>
+            <a href="#services" class="nav-link">Oferty</a>
+            <a href="#about" class="nav-link">O nas</a>
+            <a href="#contact" class="nav-link">Kontakt</a>
+        </div>
+    </nav>
+    
+    <section id="home">
+        <div class="main-title">
+            <span>Wiosenne okazje kwitną!</span>
+            <span>Złap najlepsze oferty!</span>
+        </div>
+        <div class="underline"></div>
+        <a href="#" class="button">Sprawdź!</a>
+    </section>
+    <section id="services">Oferty</section>
+    <section id="about">O nas</section>
+    <section id="contact">Kontakt</section>
+    
+    <script>
+        window.addEventListener("scroll", () => {
+            let sections = document.querySelectorAll("section");
+            let navLinks = document.querySelectorAll(".nav-link");
+
+            sections.forEach((section, i) => {
+                let top = window.scrollY;
+                let offset = section.offsetTop - 80;
+                let height = section.offsetHeight;
+
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(link => link.classList.remove("active"));
+                    navLinks[i].classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
