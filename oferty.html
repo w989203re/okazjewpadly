@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oferty - Okazje Wpadły</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'EB Garamond', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #dad7cd;
+            scroll-behavior: smooth;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #344e41;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-style: italic;
+            font-weight: bold;
+            font-family: 'Times', sans-serif;
+        }
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            padding-right: 30px;
+        }
+        .menu a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #a3b18a;
+        }
+        .offer-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+        .offer {
+            background-color: #344e41;
+            color: white;
+            width: 500px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .offer-banner {
+            margin-bottom: 20px;
+        }
+        .offer-description {
+            font-size: 18px;
+        }
+        .button {
+            font-family: 'EB Garamond', serif;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #a3b18a;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background-color: #8a9b68;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Okazje Wpadły</div>
+        <div class="menu">
+            <a href="#home" class="nav-link">Główna</a>
+            <a href="#services" class="nav-link">Oferty</a>
+            <a href="#about" class="nav-link">O nas</a>
+            <a href="#contact" class="nav-link">Kontakt</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="offer-container">
+            <div class="offer">
+                <div class="offer-banner">
+                    <script type="text/javascript" src="https://ocelot.leadstar.com.pl/cr_leadstar.js"></script>
+                    <script>
+                        CRLeadStar.init({
+                            id:1075188, 
+                            type:1, 
+                            src: "https://ocelot.leadstar.com.pl/creations/static/4056b4bc30529769cc809c2e271bffa2.jpg", 
+                            url: "https://leadstar.pl/c?pid=108301&tid=3061&gid=114453&ha=1475132374",
+                            trk: "https://ocelot.leadstar.com.pl/rewrite/4aa0e93b918848be0b7728b4b1568d8a",
+                            width:300, 
+                            height:250, 
+                            epi1:"", 
+                            epi2:""
+                        });
+                    </script>
+                </div>
+                <div class="offer-description">
+                    <h3>Opis</h3>
+                    <p>Opis oferty będzie tutaj. Zawiera szczegóły dotyczące tego, co oferujemy w ramach tej promocji.</p>
+                </div>
+            </div>
+
+            <!-- Dodaj więcej ofert tutaj w podobnej strukturze -->
+            <div class="offer">
+                <div class="offer-banner">
+                    <script type="text/javascript" src="https://ocelot.leadstar.com.pl/cr_leadstar.js"></script>
+                    <script>
+                        CRLeadStar.init({
+                            id:1075188, 
+                            type:1, 
+                            src: "https://ocelot.leadstar.com.pl/creations/static/4056b4bc30529769cc809c2e271bffa2.jpg", 
+                            url: "https://leadstar.pl/c?pid=108301&tid=3061&gid=114453&ha=1475132374",
+                            trk: "https://ocelot.leadstar.com.pl/rewrite/4aa0e93b918848be0b7728b4b1568d8a",
+                            width:300, 
+                            height:250, 
+                            epi1:"", 
+                            epi2:""
+                        });
+                    </script>
+                </div>
+                <div class="offer-description">
+                    <h3>Opis</h3>
+                    <p>Opis oferty będzie tutaj. Zawiera szczegóły dotyczące tego, co oferujemy w ramach tej promocji.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener("scroll", () => {
+            let sections = document.querySelectorAll("section");
+            let navLinks = document.querySelectorAll(".nav-link");
+
+            sections.forEach((section, i) => {
+                let top = window.scrollY;
+                let offset = section.offsetTop - 80;
+                let height = section.offsetHeight;
+
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(link => link.classList.remove("active"));
+                    navLinks[i].classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
